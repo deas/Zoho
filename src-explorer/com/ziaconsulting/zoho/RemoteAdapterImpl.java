@@ -61,26 +61,25 @@ public class RemoteAdapterImpl implements RemoteAdapter {
 		}
 		instance.serviceRegistry = serviceRegistry;
 	}
-
-	@Override
+	// @Override
 	@SuppressWarnings("rawtypes")
 	public String handleAutoSaveDraft(Hashtable info, byte[] content) {
 		return "Not Implemented";
 	}
 
-	@Override
+	// @Override
 	@SuppressWarnings("rawtypes")
 	public String handleZohoDocument(Hashtable info, byte[] content) {
 		return saveImpl(info, content);
 	}
 
-	@Override
+	// @Override
 	@SuppressWarnings("rawtypes")
 	public String handleZohoPresentation(Hashtable info, byte[] content) {
 		return saveImpl(info, content);
 	}
 
-	@Override
+	// @Override
 	@SuppressWarnings("rawtypes")
 	public String handleZohoWorkBook(Hashtable info, byte[] content) {
 		return saveImpl(info, content);
@@ -99,4 +98,5 @@ public class RemoteAdapterImpl implements RemoteAdapter {
 
 		return saved ? "Document saved to Alfresco" : "Document DID NOT save!";
 	}
+
 }

@@ -30,7 +30,7 @@ import org.alfresco.service.cmr.repository.ContentIOException;
 import org.alfresco.service.cmr.repository.ContentWriter;
 import org.alfresco.service.cmr.repository.NodeRef;
 
-import com.ziaconsulting.alfresco.AlfUtil;
+// import com.ziaconsulting.alfresco.AlfUtil;
 
 public class SaveHelper {
 	public static boolean doSave(String id, String nodeRefStr, String ticket,
@@ -42,8 +42,7 @@ public class SaveHelper {
 		}
 
 		NodeRef nodeRef = new NodeRef(nodeRefStr);
-		ContentWriter fcw = (ContentWriter) AlfUtil.services()
-				.getContentService()
+		ContentWriter fcw = (ContentWriter) serviceRegistry.getContentService()
 				.getWriter(nodeRef, ContentModel.PROP_CONTENT, true);
 		try {
 			fcw.putContent(newFile);

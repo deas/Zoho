@@ -1,6 +1,6 @@
 <project name="zoho" default="package">
-
-	<property name="alf.src.dir" location="../alf-src" />
+        <property file="build.properties"/>
+	<!--property name="alf.src.dir" location="../alf-src" /-->
 	<property name="work.dir" value="work" />
 	<property name="bin.dir" location="${work.dir}/bin" />
 	<property name="lib.dir" location="lib" />
@@ -21,7 +21,7 @@
 	<property name="share.amp.dir" location="amp-share" />
 	<property name="share.amp.filename" value="share-zoho.amp" />
 	
-	<property name="ZiaAlfresco.dir" location="../ZiaAlfresco"/>
+	<!-- property name="ZiaAlfresco.dir" location="./ZiaAlfresco"/-->
 
 
 	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
@@ -48,9 +48,9 @@
 	</target>
 	
 	<target name="build-explorer-dependencies" depends="setup">
-		<ant antfile="${ZiaAlfresco.dir}/build.xml" dir="${ZiaAlfresco.dir}" target="compile" inheritall="false">
+		<!-- ant antfile="${ZiaAlfresco.dir}/build.xml" dir="${ZiaAlfresco.dir}" target="compile" inheritall="false">
 			<property name="alf.lib.dir" value="${alf.lib.dir}" />
-		</ant>
+		</ant-->
 	</target>
 
 
@@ -63,7 +63,7 @@
 				<fileset dir="${lib.dir}">
 					<include name="*.jar" />
 				</fileset>
-				<pathelement path="${ZiaAlfresco.dir}/build/classes"/>
+				<!--pathelement path="${ZiaAlfresco.dir}/build/classes"/-->
 			</classpath>
 		</javac>
 	</target>
@@ -83,7 +83,7 @@
 		<delete dir="${work.dir}" />
 		<antcall target="package-explorer" />
 		<delete dir="${work.dir}" />
-		<antcall target="tag-git" />
+		<!--antcall target="tag-git" /-->
 	</target>
 
 	<target name="package-explorer" depends="compile-explorer">
